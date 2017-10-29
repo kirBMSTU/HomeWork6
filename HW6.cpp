@@ -6,11 +6,27 @@ Integral:: Integral(double up, double down, unsigned int n)
   std:: cout << "Integral constructor" << std:: endl;
 }
 
+Integral:: ~Integral()
+{
+  std:: cout << "virtual ~Integral()\n";
+}
+
 RectMethod:: RectMethod(double up, double down, unsigned int n)
   : Integral(up, down, n)//up(up), down(down), n(n)
 {
   std:: cout << "RectMethod constructor" << std:: endl;
 }
+
+RectMethod:: ~RectMethod()
+{
+  std:: cout << "~RectMethod()" << std:: endl;
+}
+
+TrapMethod:: ~TrapMethod()
+{
+  std:: cout << "~TrapMethod()" << std:: endl;
+}
+
 
 TrapMethod:: TrapMethod(double up, double down, unsigned int n)
   : Integral(up, down, n)//up(up), down(down), n(n)
@@ -20,6 +36,11 @@ TrapMethod:: TrapMethod(double up, double down, unsigned int n)
 
 double Integral:: calculate(func_ptr function)
 {
+  if (this->n == 0)
+  {
+    std :: cout << "Нулевое количество фигур разбиения\n";
+    return 0;
+  }
   double dx = (this->up - this->down) / this->n;
   double x = this->down;
   double area = 0;

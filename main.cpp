@@ -7,7 +7,8 @@ int main()
 {
   RectMethod alpha(4.0, 1.0, 30);
   TrapMethod beta(8.0, 2.0, 20);
-
+  
+  std:: cout << std:: endl;
   std:: cout << "Area(by RectMethod) = " << alpha.calculate(parabola) << std:: endl;
   std:: cout << "Area(by TrapMethod) = " << beta.calculate(line) << std:: endl;
 
@@ -16,5 +17,7 @@ int main()
 
   std:: cout << "Area(by RectMethod) = " << alpha1->calculate(parabola) << std:: endl;
   std:: cout << "Area(by TrapMethod) = " << beta1->calculate(line) << std:: endl;
+  std:: cout << std:: endl;
+
   return 0;
 }
